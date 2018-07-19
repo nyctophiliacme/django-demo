@@ -15,6 +15,11 @@ def post_detail(request, pk):
 def post_new(request):
 	if request.method == "POST":
 		form = PostForm(request.POST)
+		print("######\n##########")
+		print(request)
+		print(request.POST)
+		print("**********");
+		print(request.POST.get('title'))
 		if form.is_valid():
 			post = form.save(commit = False)
 			post.author = request.user
